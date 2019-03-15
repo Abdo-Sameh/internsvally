@@ -1,0 +1,21 @@
+<div>
+  <h2 class="todo_list_title">Showing results</h2>
+
+  <% if JSON.parse(@res)['smtp_check']%>
+    <div class="isa_success">
+      <p>Checking email address succeeded</p>
+    </div>
+  <% else %>
+    <div class="isa_error">
+      <p>Checking email address failed.</p>
+      <p>Email doesn't exist!</p>
+    </div>
+  <%end %>
+  <h3 class="todo_list_sub_title">Full Results</h3>
+  <div class="index_row clearfix">
+    <% JSON.parse(@res).each do |item| %>
+      <%= item.first%> : <%= item.second %>
+      <br>
+    <% end %>
+  </div>
+</div>

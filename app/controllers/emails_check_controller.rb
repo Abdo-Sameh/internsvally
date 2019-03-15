@@ -1,0 +1,25 @@
+require 'net/http'
+
+class EmailsCheckController < ApplicationController
+
+  def index
+
+  end
+
+  def check_mail
+    uri = URI('http://apilayer.net/api/check')
+    email = params[:email]
+    params = {
+        :access_key => '3602813455bd3d375d94c4fc985e8702',
+        :email => email
+    }
+
+    uri.query = URI.encode_www_form(params)
+    @res = Net::HTTP.get_response(uri).body
+  end
+
+  def show
+    @res.body
+  end
+
+end

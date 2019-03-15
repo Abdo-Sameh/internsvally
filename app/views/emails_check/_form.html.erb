@@ -1,0 +1,15 @@
+<!--<label>Please enter your mail</label>-->
+<!--<input type="email" name="email">-->
+<%#= link_to "Check", check_mail_path %>
+
+<form id="form" class="forms" action="/check_mail" method="get">
+
+  <div class="field">
+    <label>Please enter your E-mail: </label>
+  </div>
+  <div class="field">
+    <input type="email" name="email">
+  </div>
+
+  <input type="submit" value="Check">
+</form>
