@@ -3,7 +3,7 @@ class Rack::Attack
 
   Rack::Attack.cache.store = ActiveSupport::Cache::MemoryStore.new
 
-  throttle('check_mail', limit: 1, period: 10.seconds) do |request|
+  throttle('check_mail', limit: 5, period: 1.second) do |request|
     if request.path.include?('/check_mail') && request.get?
       request.ip
     end
